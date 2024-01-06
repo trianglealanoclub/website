@@ -18,7 +18,7 @@
   --navbar-mobile-background: rgba(11, 21, 87, 0.9);
   --navbar-mobile-dropdown-ul-box-shadow: rgba(11, 21, 87, 0.25);
 
-  --hero-background-url: url(/assets/img/winter.jpg);
+  --hero-background-url: url(assets/img/winter.jpg);
   --hero-before-background: rgba(187, 211, 223, 0.5);
 
   --donate-card-box-shadow: rgba(11, 21, 87, 0.1);
@@ -43,7 +43,7 @@
   --navbar-mobile-background: rgba(0, 121, 44, 0.9);
   --navbar-mobile-dropdown-ul-box-shadow: rgba(0, 121, 44, 0.25);
 
-  --hero-background-url: url(/assets/img/new-years-day.png);
+  --hero-background-url: url(assets/img/new-years-day.png);
   --hero-before-background: rgba(0, 121, 44, 0.00);
 
   --donate-card-box-shadow: rgba(0, 121, 44, 0.1);
@@ -68,7 +68,7 @@
   --navbar-mobile-background: rgba(11, 21, 87, 0.9);
   --navbar-mobile-dropdown-ul-box-shadow: rgba(11, 21, 87, 0.25);
 
-  --hero-background-url: url(/assets/img/winter.jpg);
+  --hero-background-url: url(assets/img/winter.jpg);
   --hero-before-background: rgba(187, 211, 223, 0.5);
 
   --donate-card-box-shadow: rgba(11, 21, 87, 0.1);
