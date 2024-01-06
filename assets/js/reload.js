@@ -1,7 +1,7 @@
 (function () {
 
     // Match this timestamp with the release of your code
-    var lastVersioning = Date.UTC(2024, 0, 6, 11, 36);
+    var lastVersioning = Date.UTC(2024, 0, 6, 12, 1);
 
     var lastCacheDateTime = localStorage.getItem('lastCacheDateTime');
 
