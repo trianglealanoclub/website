@@ -1074,7 +1074,7 @@ h6 {
 }
 
 #location .location-info {
-  background: url("website/assets/img/location-info-bg.png") top center no-repeat;
+  background: url("assets/img/location-info-bg.png") top center no-repeat;
   background-size: cover;
   position: relative;
   padding-top: 60px;
