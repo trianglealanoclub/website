@@ -18,7 +18,7 @@
   --navbar-mobile-background: rgba(11, 21, 87, 0.9);
   --navbar-mobile-dropdown-ul-box-shadow: rgba(11, 21, 87, 0.25);
 
-  --hero-background-url: url(/assets/img/winter.jpg);
+  --hero-background-url: url(../img/winter.jpg);
   --hero-before-background: rgba(187, 211, 223, 0.5);
 
   --donate-card-box-shadow: rgba(11, 21, 87, 0.1);
@@ -43,7 +43,7 @@
   --navbar-mobile-background: rgba(0, 121, 44, 0.9);
   --navbar-mobile-dropdown-ul-box-shadow: rgba(0, 121, 44, 0.25);
 
-  --hero-background-url: url(/assets/img/new-years-day.png);
+  --hero-background-url: url(../img/new-years-day.png);
   --hero-before-background: rgba(0, 121, 44, 0.00);
 
   --donate-card-box-shadow: rgba(0, 121, 44, 0.1);
@@ -93,7 +93,7 @@
   --navbar-mobile-background: rgba(192, 0, 0, 0.9);
   --navbar-mobile-dropdown-ul-box-shadow: rgba(192, 0, 0, 0.25);
 
-  --hero-background-url: url(/assets/img/valentines-day.png);
+  --hero-background-url: url(../img/valentines-day.png);
   --hero-before-background: rgba(255, 187, 193, 0.5);
 
   --donate-card-box-shadow: rgba(192, 0, 0, 0.1);
@@ -118,7 +118,7 @@
   --navbar-mobile-background: rgba(177, 167, 240, 0.9);
   --navbar-mobile-dropdown-ul-box-shadow: rgba(177, 167, 240, 0.25);
 
-  --hero-background-url: url(/assets/img/spring.png);
+  --hero-background-url: url(../img/spring.png);
   --hero-before-background: rgba(255, 255, 255, 0.5);
 
   --donate-card-box-shadow: rgba(177, 167, 240, 0.1);
@@ -143,7 +143,7 @@
   --navbar-mobile-background: rgba(11, 21, 87, 0.9);
   --navbar-mobile-dropdown-ul-box-shadow: rgba(11, 21, 87, 0.25);
 
-  --hero-background-url: url(/assets/img/spring.png);
+  --hero-background-url: url(../img/spring.png);
   --hero-before-background: rgba(187, 211, 223, 0.5);
 
   --donate-card-box-shadow: rgba(11, 21, 87, 0.1);
@@ -168,7 +168,7 @@
   --navbar-mobile-background: rgba(58, 135, 155, 0.9);
   --navbar-mobile-dropdown-ul-box-shadow: rgba(58, 135, 155, 0.25);
 
-  --hero-background-url: url(/assets/img/summer.png);
+  --hero-background-url: url(../img/summer.png);
   --hero-before-background: rgba(192,232,240, 0.4);
 
   --donate-card-box-shadow: rgba(58, 135, 155, 0.1);
@@ -193,7 +193,7 @@
   --navbar-mobile-background: rgba(60, 60, 108, 0.9);
   --navbar-mobile-dropdown-ul-box-shadow: rgba(60, 60, 108, 0.25);
 
-  --hero-background-url: url(/assets/img/independence-day.png);
+  --hero-background-url: url(../img/independence-day.png);
   --hero-before-background: rgba(255, 255, 255, 0.4);
 
   --donate-card-box-shadow: rgba(60, 60, 108, 0.1);
@@ -218,7 +218,7 @@
   --navbar-mobile-background: rgba(11, 21, 87, 0.9);
   --navbar-mobile-dropdown-ul-box-shadow: rgba(11, 21, 87, 0.25);
 
-  --hero-background-url: url(/assets/img/spring.png);
+  --hero-background-url: url(../img/spring.png);
   --hero-before-background: rgba(187, 211, 223, 0.5);
 
   --donate-card-box-shadow: rgba(11, 21, 87, 0.1);
@@ -243,7 +243,7 @@
   --navbar-mobile-background: rgba(46, 84, 26, 0.9);
   --navbar-mobile-dropdown-ul-box-shadow: rgba(46, 84, 26, 0.25);
 
-  --hero-background-url: url(/assets/img/fall.png);
+  --hero-background-url: url(../img/fall.png);
   --hero-before-background: rgba(222, 112, 15, 0.1);
 
   --donate-card-box-shadow: rgba(46, 84, 26, 0.1);
@@ -268,7 +268,7 @@
   --navbar-mobile-background: rgba(11, 21, 87, 0.9);
   --navbar-mobile-dropdown-ul-box-shadow: rgba(11, 21, 87, 0.25);
 
-  --hero-background-url: url(/assets/img/spring.png);
+  --hero-background-url: url(../img/spring.png);
   --hero-before-background: rgba(187, 211, 223, 0.5);
 
   --donate-card-box-shadow: rgba(11, 21, 87, 0.1);
@@ -293,7 +293,7 @@
   --navbar-mobile-background: rgba(11, 21, 87, 0.9);
   --navbar-mobile-dropdown-ul-box-shadow: rgba(11, 21, 87, 0.25);
 
-  --hero-background-url: url(/assets/img/spring.png);
+  --hero-background-url: url(../img/spring.png);
   --hero-before-background: rgba(187, 211, 223, 0.5);
 
   --donate-card-box-shadow: rgba(11, 21, 87, 0.1);
@@ -318,7 +318,7 @@
   --navbar-mobile-background: rgba(0, 121, 44, 0.9);
   --navbar-mobile-dropdown-ul-box-shadow: rgba(0, 121, 44, 0.25);
 
-  --hero-background-url: url(/assets/img/christmas.png);
+  --hero-background-url: url(../img/christmas.png);
   --hero-before-background: rgba(0, 121, 44, 0.00);
 
   --donate-card-box-shadow: rgba(0, 121, 44, 0.1);
