@@ -31,6 +31,12 @@
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+	<link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
     <!-- Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
@@ -39,15 +45,28 @@
     <script src="assets/js/setTheme.js"></script>
 
     <!-- EmailJS SDK -->
-    <script src="assets/vendor/@emailjs/email.min.js"></script>
-    <script src="assets/js/emailJSinit.js"></script>
+    <!--<script src="assets/vendor/@emailjs/email.min.js"></script>
+    <script src="assets/js/emailJSinit.js"></script>-->
+	
+	<script src="assets/js/email.js"></script>
+	
+	<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "zX6RCBE-pAcy82AUO",
+      });
+   })();
+</script>
 
 </head>
 
 <body>
 
     <!-- ======= Header ======= -->
-    <header id="header" class="d-flex align-items-center ">
+    <header id="header" class="d-flex align-items-center">
         <div class="container-fluid container-xxl d-flex align-items-center">
             <div id="logo" class="me-auto">
                 <script src="assets/js/setHeaderLogo.js"></script>
@@ -546,7 +565,7 @@
         </section>
         <!-- End Meetings Section -->
 		
-		<!-- ======= Location Section ======= -->
+		<!-- ======= Calendar Section ======= -->
 		
 		<section id="calendar">
 
@@ -564,7 +583,7 @@
             </div>
         </section>
 		
-		<!-- End Meetings Section -->
+		<!-- End Calendar Section -->
 		
         <!-- ======= Location Section ======= -->
         <section id="location">
@@ -614,8 +633,7 @@
                                 <h5 class="card-title text-muted text-uppercase text-center">Annual TAC Membership</h5>
                                 <h6 class="card-price text-center">$150</h6>
                                 <hr>
-                                <div id="paypal-button-container-P-8XH36965013975444MIGHIPI"></div>
-                                <script>
+<script>
                                     paypal.Buttons({
                                         style: {
                                             shape: 'rect',
@@ -643,8 +661,7 @@
                                 <h5 class="card-title text-muted text-uppercase text-center">Monthly TAC Membership</h5>
                                 <h6 class="card-price text-center">$15</h6>
                                 <hr>
-                                <div id="paypal-button-container-P-03K54366KU582762BMIGAU5I"></div>
-                                <script>
+<script>
                                     paypal.Buttons({
                                         style: {
                                             shape: 'rect',
@@ -723,37 +740,11 @@
                     <h2>Contact Us</h2>
                     <p>Please contact us by completing this form, we'll get back to you soon!</p>
                 </div>
+				
+				<div data-aidaform-widget="form-2019-12" data-url="https://lewwilson2001.aidaform.com/free-basic-contact-form" data-width="100%" data-height="500px" data-do-resize></div><script>(function(){var r,d=document,gt=d.getElementById,cr=d.createElement,tg=d.getElementsByTagName,id="aidaform-embed";if(!gt.call(d,id)){r=cr.call(d,"script");r.id=id;r.src="https://embed.aidaform.com/embed.js";(d.head || tg.call(d,"head")[0]).appendChild(r);}})()</script>
 
-                <div class="form">
-                    <form id="contact-form" method="post" role="form" class="email-form">
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                                    required>
-                            </div>
-                            <div class="form-group col-md-6 mt-3 mt-md-0">
-                                <input type="email" class="form-control" name="email" id="email"
-                                    placeholder="Your Email" required>
-                            </div>
-                        </div>
-                        <div class="form-group mt-3">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                                required>
-                        </div>
-                        <div class="form-group mt-3">
-                            <textarea class="form-control" name="message" rows="5" placeholder="Message"
-                                required></textarea>
-                        </div>
-                        <div class="my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                        </div>
-                        <div class="text-center"><button type="submit">Send Message</button></div>
-                    </form>
-                </div>
-
-            </div>
+            </div>			
+			
         </section>
         <!-- End Contact Section -->
 
