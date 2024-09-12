@@ -1,653 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<style>
+html {
+	scroll-behavior: smooth;
+}
+.back-to-top {
+	position: fixed;
+	bottom: 25px;
+	right: 25px;
+	display: none;
+}
 
-    <!-- function to force browswer to reload to catch updates since last load-->
-    <script src="assets/js/reload.js"></script>
+.meeting {
+	line-height: 2em;
+}
 
-    <!-- LaunchDarkly JavaScript SDK -->
-    <script src="assets/vendor/launchdarkly/ldclient.min.js"></script>
-    <script src="assets/js/ldclient.js"></script>
+.meeting-time {
+	font-weight: 700;
+	font-size: 1.25em;
+	display: inline-block;
+	color: darkslategray;
+	margin-right: .5em;
+}
 
-    <title>Triangle Alano Club</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+.meeting-info {
+	font-weight: 400;
+	font-size: 1em;
+	display: inline-block;
+	font-style: italic;
+}
 
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+.meeting-name {
+	font-weight: 700;
+	font-size: 1.25em;
+	display: inline-block;
+	color: darkslategray !important;
+}
 
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
-        rel="stylesheet">
+.meeting-type {
+	font-weight: 500;
+	font-size: 1em;
+	display: inline-block;
+	background-color: aliceblue;
+	padding: .15em .75em ;
+	border-radius: 10em;
+/*	box-shadow: 2px 2px 5px lightgray;*/
+	margin-top: .5em;
+	font-style: italic;
+	color: darkslategrey;
+}
 
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-	<link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-
-    <!-- Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
-
-    <!-- CSS Theme Change Feature-->
-    <script src="assets/js/setTheme.js"></script>
-
-    <!-- EmailJS SDK -->
-    <!--<script src="assets/vendor/@emailjs/email.min.js"></script>
-    <script src="assets/js/emailJSinit.js"></script>-->
-	
-	<script src="assets/js/email.js"></script>
-	
-	<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+.meeting-type-block {
+	display: block;
+	margin-top: -.5em;
+}
+</style>
+<script>
+$(document).ready(function(){
+	$(window).scroll(function () {
+			if ($(this).scrollTop() > 50) {
+				$('#back-to-top').fadeIn();
+			} else {
+				$('#back-to-top').fadeOut();
+			}
+		});
+		// scroll body to 0px on click
+		$('#back-to-top').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 400);
+			return false;
+		});
+});
 </script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "zX6RCBE-pAcy82AUO",
-      });
-   })();
-</script>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triangle Alano Club</title>
 
+<!-- Bootstrap -->
+<link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+
+<!--Font Awesome-->
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 </head>
-
 <body>
-
-    <!-- ======= Header ======= -->
-    <header id="header" class="d-flex align-items-center">
-        <div class="container-fluid container-xxl d-flex align-items-center">
-            <div id="logo" class="me-auto">
-                <script src="assets/js/setHeaderLogo.js"></script>
-            </div>
-            <nav id="navbar" class="navbar order-last order-lg-0">
-                <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#meetings">Meetings</a></li>
-					<li><a class="nav-link scrollto" href="#calendar">Calendar</a></li>
-                    <li><a class="nav-link scrollto" href="#location">Location</a></li>
-					<li><a class="nav-link scrollto" href="#mission">Mission</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
-            <a class="donate scrollto" href="#donate">TAC Membership</a>
-        </div>
-    </header>
-    <!-- End Header -->
-
-    <!-- ======= Hero Section ======= -->
-    <section id="hero">
-        <script src="assets/js/setHeroLogo.js"></script>
-    </section>
-    <!-- End Hero Section -->
-
-    <main id="main">
-
-        <!-- ======= Meetings Section ======= -->
-        <section id="meetings" class="section-with-bg">
-
-            <div class="container" data-aos="fade-up">
-                <div class="section-header">
-                    <h2>Meeting Schedule</h2>
-                    <p id="datetime">
-                        <script src="assets/js/setDate.js"></script>
-                    </p>
-                </div>
-
-                <ul class="nav nav-tabs" role="tablist" data-aos="fade-up" data-aos-delay="100">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#sunday" role="tab" data-bs-toggle="tab" id="tab-sunday">Sunday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#monday" role="tab" data-bs-toggle="tab" id="tab-monday">Monday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#tuesday" role="tab" data-bs-toggle="tab" id="tab-tuesday">Tuesday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#wednesday" role="tab" data-bs-toggle="tab"
-                            id="tab-wednesday">Wednesday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#thursday" role="tab" data-bs-toggle="tab"
-                            id="tab-thursday">Thursday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#friday" role="tab" data-bs-toggle="tab" id="tab-friday">Friday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#saturday" role="tab" data-bs-toggle="tab"
-                            id="tab-saturday">Saturday</a>
-                    </li>
-                </ul>
-
-                <h3 class="sub-heading">All meetings are 1 hour in duration</h3>
-
-                <div class="tab-content row justify-content-center" data-aos="fade-up" data-aos-delay="200">
-
-                    <!-- Sunday Meeting Schedule -->
-                    <div role="tabpanel" class="col-lg-9 tab-pane fade" id="sunday">
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>6:30 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Morning Meditation Group<br><span>11th Step Discussion</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>8:30 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Greenwood Forest Group<br><span>Spiritual Meeting</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>10:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Greenwood Forest Group<br><span>Men's Meeting</span></h4>
-                                <p>This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>1:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Living Now<br><span>Big Book Discussion</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>6:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Greenwood Forest Group<br><span>Women's Meeting</span></h4>
-                                <p>This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- End Sunday Meeting Schedule -->
-
-                    <!-- Monday Meeting Schedule -->
-                    <div role="tabpanel" class="col-lg-9 tab-pane fade" id="monday">
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>6:30 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Morning Meditation Group<br><span>11th Step Discussion</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-						
-						<div class="row meetings-item">
-                            <div class="col-md-2"><time>9:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Be Still ... Mid-Morning Meditation<br><span>Meditation</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>12:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Living Now<br><span>Literature Discussion</span></h4>
-                                <p>This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>6:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Living Now<br><span>Literature Discussion</span></h4>
-                                <p>This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- End Monday Meeting Schedule -->
-
-                    <!-- Tuesday Meeting Schedule -->
-                    <div role="tabpanel" class="col-lg-9 tab-pane fade" id="tuesday">
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>6:30 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Morning Meditation Group<br><span>11th Step Discussion</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-						
-						<!-- ADDED LEW -->
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>9:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Be Still ... Mid-Morning Meditation<br><span>Meditation</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-						
-						<!-- END ADDED LEW -->
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>12:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Living Now<br><span>Literature Discussion</span></h4>
-                                <p>This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>6:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Greenwood Forest Group<br><span>Literature Discussion</span></h4>
-                                <p>This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>8:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>YRAC<br><span>Big Book Study</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- End Tuesday Meeting Sechedule -->
-
-                    <!-- Wednesday Meeting Schedule -->
-                    <div role="tabpanel" class="col-lg-9 tab-pane fade" id="wednesday">
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>6:30 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Morning Meditation Group<br><span>11th Step Discussion</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-						
-						<!-- ADDED LEW -->
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>9:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Be Still<br><span>Meditation</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-						
-						<!-- END ADDED LEW -->
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>12:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Living Now<br><span>Literature Discussion</span></h4>
-                                <p>This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>1:30 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/al-anon-logo-blue.png" alt="Al-Anon">
-                                </div>
-                                <h4>Courage to Change<br><span>Discussion Meeting</span></h4>
-                                <p>This is an open meeting of Al-Anon</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>6:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Living Now<br><span>Literature Discussion</span></h4>
-                                <p>This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>8:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Cary Young People<br><span>Beginners' Meeting</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- End Wednesday Meeting Schedule -->
-
-                    <!-- Thursday Meeting Schedule -->
-                    <div role="tabpanel" class="col-lg-9 tab-pane fade" id="thursday">
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>6:30 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Morning Meditation Group<br><span>11th Step Discussion</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>9:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Be Still... Mid-Morning Meditation<br><span>Meditation</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>12:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Living Now<br><span>Literature Discussion</span></h4>
-                                <p>This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>6:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Living Now<br><span>Literature Discussion</span></h4>
-                                <p>This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- End Thursday Meeting Schedule -->
-
-                    <!-- Friday Meeting Schedule -->
-                    <div role="tabpanel" class="col-lg-9 tab-pane fade" id="friday">
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>6:30 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Morning Meditation Group<br><span>11th Step Discussion</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>9:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Be Still... Mid-Morning Meditation Group<br><span>Meditation</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>12:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Living Now<br><span>Literature Discussion</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>6:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Greenwood Forest Group<br><span>Beginners' Meeting and Discussion</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>8:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>YRAC<br><span>Literature Discussion</span></h4>
-                                <p>This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- End Friday Meeting Schedule -->
-
-                    <!-- Saturday Meeting Schedule -->
-                    <div role="tabpanel" class="col-lg-9 tab-pane fade" id="saturday">
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>6:30 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Morning Meditation Group<br><span>11th Step Discussion</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>8:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Living Now<br><span>Discussion Meeting</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>9:30 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/al-anon-logo-blue.png" alt="Al-Anon">
-                                </div>
-                                <h4>Courage to Change<br><span>Discussion Meeting</span></h4>
-                                <p>This is an open meeting of Al-Anon</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>12:30 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Keep it Simple<br><span>Literature Discussion</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>6:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Living Now<br><span>Big Book Discussion</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                        <div class="row meetings-item">
-                            <div class="col-md-2"><time>8:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="meeting">
-                                    <img src="assets/img/aa-logo-blue.png" alt="Alcoholics Anonymous (A.A.)">
-                                </div>
-                                <h4>Cary Young People<br><span>Big Book Discussion</span></h4>
-                                <p>This is an open meeting of Alcoholics Anonymous (A.A.)</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- End Saturday Meeting Schedule -->
-
-                </div>
-
-            </div>
-
-        </section>
-        <!-- End Meetings Section -->
-		
-		<!-- ======= Calendar Section ======= -->
-		
-		<section id="calendar">
-
-            <div class="container-fluid" data-aos="fade-up">
-
-                <div class="section-header">
-                    <h2>TAC Calendar</h2>
-                    <p>Upcoming events at the Triangle Alano Club</p>
-                </div>
-                <div>
-                    <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
-<div class="commonninja_component pid-836b5f0d-23aa-4c99-8dbf-2e9d6508911e"></div>
-                </div>
-
-            </div>
-        </section>
-		
-		<!-- End Calendar Section -->
-		
-        <!-- ======= Location Section ======= -->
-        <section id="location">
-
-            <div class="container-fluid" data-aos="fade-up">
-
-                <div class="section-header">
-                    <h2>Location</h2>
-                    <p>Triangle Alano Club location information</p>
-                </div>
-
-                <div class="row g-0">
-                    <div class="col-lg-6 location-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6474.656090121862!2d-78.7430612235485!3d35.76731737255957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89acf484eab87b25%3A0xde0cb78b572d89c3!2s1219%20Buck%20Jones%20Rd%2C%20Raleigh%2C%20NC%2027606!5e0!3m2!1sen!2sus!4v1712674142924!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-
-                    <div class="col-lg-6 location-info">
-                        <div class="row justify-content-center">
-                            <div class="col-11 col-lg-8 position-relative text-center">
-                                <h3>1219 Buck Jones Road<br>Raleigh, NC 27606</h3>
-                                <p>The Triangle Alano Club is located at the corner of Buck Jones Road and Nottingham
-                                    Drive. The
-                                    building was formerly a Walgreens in the South Hill Mall and Plaza area.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <!-- End of Location Section -->
-
-        <!-- ======= Donate Section ======= -->
-        <section id="donate" class="section-with-bg">
-            <div class="container" data-aos="fade-up">
-                <div class="section-header">
-                    <h2>Become a Member of the Triangle Alano Club</h2>
-                    <p>Your membership is tax-deductible.</p>
-                </div>
-                <div class="row">
-                    <script
+<a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i class="icon-arrow-up"></i></a>
+<div class="container-fluid bg-dark">
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <a class="navbar-brand" href="#"><img src="images/TAC-logo-blue.png" width="243" height="64" alt=""/></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-auto justify-content-center">
+<li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
+<li class="nav-item"> <a class="nav-link" href="#meetings">Meetings</a> </li>
+<li class="nav-item"> <a class="nav-link" href="#location">Location</a> </li>
+<li class="nav-item"> <a class="nav-link" href="#calendar">Calendar</a> </li>
+<li class="nav-item"> <a class="nav-link" href="#contact">Contact</a> </li>
+<li class="nav-item"> <a class="nav-link" href="#membership">TAC Membership</a> </li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class="jumbotron jumbotron-fluid text-center">
+<h1 class="display-4 font-weight-bolder">Welcome to the Triangle Alano Club</h1>
+<p class="lead">We are glad you are here!</p>
+<p class="container">The mission of the Triangle Alano Club, Inc. (TAC) is to provide a safe, comfortable meeting place and social environment for recovering persons and their families in Alcoholics Anonymous, Al-Anon and Alateen groups.</p>
+</div>
+<section>
+<div class="container text-center pt-2" id="meetings">
+<h2 class="text-center mt-5 font-weight-bold"><i class="icon-time text-info"></i> Meeting Schedule at the TAC</h2>
+<h4 class="font-weight-lighter mb-5">All meetings are 1 hour long.</h4>
+</div>
+<div id="accordion1" role="tablist" class="container mb-5">
+<div class="card mb-1">
+<div class="card-header" role="tab" id="headingOne1">
+<a data-toggle="collapse" href="#collapseOne1" role="button" aria-expanded="true" aria-controls="collapseOne1"><h3 class="mb-0 text-center "> <strong>Sunday</strong> </h3></a>
+</div>
+<div id="collapseOne1" class="collapse" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordion1">
+<div class="card-body">
+
+<p class="meeting">
+<span class="meeting-time">6:30 AM</span>
+<span class="meeting-name">Morning Meditation Group</span>
+<span class="meeting-type-block">
+<span class="meeting-type">11th Step Discussion</span>
+<span class="meeting-type">Open Meeting</span>
+<span class="meeting-type">Alcoholics Anonymous</span>
+</span>
+</p>
+
+<p class="meeting">
+<span class="meeting-time">8:30 AM</span>
+<span class="meeting-name">Greenwood Forest Group</span>
+<span class="meeting-type-block">
+<span class="meeting-type">Spiritual Meeting</span>
+<span class="meeting-type">Open Meeting</span>
+<span class="meeting-type">Alcoholics Anonymous</span>
+</span>
+</p>
+
+<p class="meeting">
+<span class="meeting-time">10:00 AM</span>
+<span class="meeting-name">Greenwood Forest Group</span>
+<span class="meeting-type-block">
+<span class="meeting-type">Men's Meeting</span>
+<span class="meeting-type">Closed Meeting</span>
+<span class="meeting-type">Alcoholics Anonymous</span>
+</span>
+</p>
+
+<p class="meeting">
+<span class="meeting-time">1:00 PM</span>
+<span class="meeting-name">Living Now</span>
+<span class="meeting-type-block">
+<span class="meeting-type">Big Book Discussion</span>
+<span class="meeting-type">Open Meeting</span>
+<span class="meeting-type">Alcoholics Anonymous</span>
+</span>
+</p>
+
+<p class="meeting">
+<span class="meeting-time">6:00 PM</span>
+<span class="meeting-name">Greenwood Forest Group</span>
+<span class="meeting-type-block">
+<span class="meeting-type">Women's Meeting</span>
+<span class="meeting-type">Closed Meeting</span>
+<span class="meeting-type">Alcoholics Anonymous</span>
+</span>
+</p>
+
+</div>
+</div>
+</div>
+<div class="card mb-1">
+<div class="card-header" role="tab" id="headingTwo1">
+<a class="collapsed" data-toggle="collapse" href="#collapseTwo1" role="button" aria-expanded="false" aria-controls="collapseTwo1"> <h3 class="mb-0 text-center"> <strong>Monday</strong> </h3> </a>
+</div>
+<div id="collapseTwo1" class="collapse" role="tabpanel" aria-labelledby="headingTwo1" data-parent="#accordion1">
+<div class="card-body">
+<p>6:30 AM Alcoholics Anonymous (A.A.) Morning Meditation Group 11th Step Discussion This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+<p>9:00 AM Alcoholics Anonymous (A.A.) Be Still ... Mid-Morning Meditation Meditation This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+<p>12:00 PM Alcoholics Anonymous (A.A.) Living Now Literature Discussion This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
+<p>6:00 PM Alcoholics Anonymous (A.A.) Living Now Literature Discussion This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
+</div>
+</div>
+</div>
+<div class="card mb-1">
+<div class="card-header" role="tab" id="headingThree1">
+<h3 class="mb-0 text-center"> <a class="collapsed" data-toggle="collapse" href="#collapseThree1" role="button" aria-expanded="false" aria-controls="collapseThree1"> <strong>Tuesday</strong> </a> </h3>
+</div>
+<div id="collapseThree1" class="collapse" role="tabpanel" aria-labelledby="headingThree1" data-parent="#accordion1">
+<div class="card-body">
+<p>6:30 AM Alcoholics Anonymous (A.A.) Morning Meditation Group 11th Step Discussion This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+<p>9:00 AM Alcoholics Anonymous (A.A.) Be Still ... Mid-Morning Meditation Meditation This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+<p>12:00 PM Alcoholics Anonymous (A.A.) Living Now Literature Discussion This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
+<p>6:00 PM Alcoholics Anonymous (A.A.) Greenwood Forest Group Literature Discussion This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
+<p>8:00 PM Alcoholics Anonymous (A.A.) YRAC Big Book Study This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+</div>
+</div>
+</div>
+<div class="card mb-1">
+<div class="card-header" role="tab" id="headingFour1">
+<h3 class="mb-0 text-center"> <a class="collapsed" data-toggle="collapse" href="#collapseThree1" role="button" aria-expanded="false" aria-controls="collapseThree1"> <strong>Wednesday</strong> </a> </h3>
+</div>
+<div id="collapseFour1" class="collapse" role="tabpanel" aria-labelledby="headingThree1" data-parent="#accordion1">
+<div class="card-body">
+<p>6:30 AM Alcoholics Anonymous (A.A.) Morning Meditation Group 11th Step Discussion This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+<p>9:00 AM Alcoholics Anonymous (A.A.) Be Still Meditation This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+<p>12:00 PM Alcoholics Anonymous (A.A.) Living Now Literature Discussion This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
+<p>1:30 PM Al-Anon Courage to Change Discussion Meeting This is an open meeting of Al-Anon</p>
+<p>6:00 PM Alcoholics Anonymous (A.A.) Living Now Literature Discussion This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
+<p>8:00 PM Alcoholics Anonymous (A.A.) Cary Young People Beginners' Meeting This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+</div>
+</div>
+</div>
+<div class="card mb-1">
+<div class="card-header" role="tab" id="headingFive1">
+<h3 class="mb-0 text-center"> <a class="collapsed" data-toggle="collapse" href="#collapseThree1" role="button" aria-expanded="false" aria-controls="collapseThree1"> <strong>Thursday</strong> </a> </h3>
+</div>
+<div id="collapseFive1" class="collapse" role="tabpanel" aria-labelledby="headingThree1" data-parent="#accordion1">
+<div class="card-body">
+<p>6:30 AM Alcoholics Anonymous (A.A.) Morning Meditation Group 11th Step Discussion This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+<p>9:00 AM Alcoholics Anonymous (A.A.) Be Still... Mid-Morning Meditation Meditation This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+<p>12:00 PM Alcoholics Anonymous (A.A.) Living Now Literature Discussion This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
+<p>6:00 PM Alcoholics Anonymous (A.A.) Living Now Literature Discussion This is a closed meeting of Alcoholics Anonymous (A.A.)</p>
+</div>
+</div>
+</div>
+<div class="card mb-1">
+<div class="card-header" role="tab" id="headingSix1">
+<h3 class="mb-0 text-center"> <a class="collapsed" data-toggle="collapse" href="#collapseThree1" role="button" aria-expanded="false" aria-controls="collapseThree1"> <strong>Friday</strong> </a> </h3>
+</div>
+<div id="collapseSix1" class="collapse" role="tabpanel" aria-labelledby="headingThree1" data-parent="#accordion1">
+<div class="card-body">
+<p>6:30 AM Alcoholics Anonymous (A.A.) Morning Meditation Group 11th Step Discussion This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+<p>9:00 AM Alcoholics Anonymous (A.A.) Be Still... Mid-Morning Meditation Group Meditation This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+<p>12:00 PM Alcoholics Anonymous (A.A.) Living Now Literature Discussion This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+<p>6:00 PM Alcoholics Anonymous (A.A.) Greenwood Forest Group Beginners' Meeting and Discussion This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+<p>8:00 PM Alcoholics Anonymous (A.A.) YRAC Literature Discussion This is a closed meeting of Alcoholics Anonymous (A.A.) </p>
+</div>
+</div>
+</div>
+<div class="card mb-1">
+<div class="card-header" role="tab" id="headingSeven1">
+<h3 class="mb-0 text-center"> <a class="collapsed" data-toggle="collapse" href="#collapseThree1" role="button" aria-expanded="false" aria-controls="collapseThree1"> <strong>Saturday</strong> </a> </h3>
+</div>
+<div id="collapseSeven1" class="collapse" role="tabpanel" aria-labelledby="headingThree1" data-parent="#accordion1">
+<div class="card-body">
+<p>6:30 AM Alcoholics Anonymous (A.A.) Morning Meditation Group 11th Step Discussion This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+<p>8:00 AM Alcoholics Anonymous (A.A.) Living Now Discussion Meeting This is an open meeting of Alcoholics Anonymous</p>
+<p>9:30 AM Al-Anon Courage to Change Discussion Meeting This is an open meeting of Al-Anon</p>
+<p>12:30 PM Alcoholics Anonymous (A.A.) Keep it Simple Literature Discussion This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+<p>6:00 PM Alcoholics Anonymous (A.A.) Living Now Big Book Discussion This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+<p>8:00 PM Alcoholics Anonymous (A.A.) Cary Young People Big Book Discussion This is an open meeting of Alcoholics Anonymous (A.A.)</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="container text-center pt-2" id="location">
+<h2 class="text-center mt-5 font-weight-bold"><i class="icon-map-marker text-info"></i> Location</h2>
+<h4 class="font-weight-lighter mb-5">Triangle Alano Club location information.</h4>
+</div>
+<div class="container mb-5">
+<div class="row">
+<div class="col">
+<iframe class="rounded shadow-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6474.656090121862!2d-78.7430612235485!3d35.76731737255957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89acf484eab87b25%3A0xde0cb78b572d89c3!2s1219%20Buck%20Jones%20Rd%2C%20Raleigh%2C%20NC%2027606!5e0!3m2!1sen!2sus!4v1712674142924!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<div class="col">
+<h3><a href="https://maps.app.goo.gl/36BD3meLxzGtRXvf9" target="_blank">1219 Buck Jones Road<br>
+Raleigh, NC 27606</a></h3>
+<p>The Triangle Alano Club is located at the corner of Buck Jones Road and Nottingham Drive. The building was formerly a Walgreens in the South Hill Mall and Plaza area.</p>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="container text-center pt-2" id="calendar">
+<h2 class="text-center mt-5 font-weight-bold"><i class="icon-map-marker text-info"></i> Calendar</h2>
+<h4 class="font-weight-lighter mb-5">Here are upcoming events at the TAC.</h4>
+</div>
+<div class="container mb-5"> 
+<script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
+<div class="commonninja_component pid-836b5f0d-23aa-4c99-8dbf-2e9d6508911e"> </div>
+</div>
+</section>
+<section>
+<div class="container text-center pt-2" id="contact">
+<h2 class="text-center mt-5 font-weight-bold"><i class="icon-pencil text-info"></i> Contact Us</h2>
+</div>
+<div class="container mb-5">
+<div data-aidaform-widget="form-2019-12" data-url="https://lewwilson2001.aidaform.com/free-basic-contact-form" data-width="100%" data-height="500px" data-do-resize></div>
+<script>(function(){var r,d=document,gt=d.getElementById,cr=d.createElement,tg=d.getElementsByTagName,id="aidaform-embed";if(!gt.call(d,id)){r=cr.call(d,"script");r.id=id;r.src="https://embed.aidaform.com/embed.js";(d.head || tg.call(d,"head")[0]).appendChild(r);}})()</script> 
+</div>
+</section>
+<section>
+<div class="container text-center pt-2" id="membership">
+<h2 class="text-center mt-5 font-weight-bold"><i class="icon-coffee text-info"></i> TAC Membership</h2>
+<h4 class="font-weight-lighter mb-5">Your membership is tax-deductible.</h4>
+</div>
+<div class="container mb-5">
+<div class="row"> 
+<script
                         src="https://www.paypal.com/sdk/js?client-id=AXpPTFjcCnYC_wwS7zVSku5JK51om6ywDhzC8fCYgRL473ETvUfU407_VFKwaMT__HI50BVR1cyEL1gT&vault=true&intent=subscription"
                         data-sdk-integration-source="button-factory"></script>
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card mb-5 mb-lg-0">
-                            <div class="card-body">
-                                <h5 class="card-title text-muted text-uppercase text-center">Annual TAC Membership</h5>
-                                <h6 class="card-price text-center">$150</h6>
-                                <hr>
+<div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+<div class="card mb-5 mb-lg-0">
+<div class="card-body">
+<h5 class="card-title text-muted text-uppercase text-center">Annual TAC Membership</h5>
+<h6 class="card-price text-center">$150</h6>
+<hr>
 <script>
                                     paypal.Buttons({
                                         style: {
@@ -666,16 +332,19 @@
                                             window.location.href = "https://trianglealanoclub.com/thank-you-annual.html"
                                         }
                                     }).render('#paypal-button-container-P-8XH36965013975444MIGHIPI'); // Renders the PayPal button
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card mb-5 mb-lg-0">
-                            <div class="card-body">
-                                <h5 class="card-title text-muted text-uppercase text-center">Monthly TAC Membership</h5>
-                                <h6 class="card-price text-center">$15</h6>
-                                <hr>
+                                </script> 
+</div>
+</div>
+</div>
+<div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+<div class="card mb-5 mb-lg-0">
+<div class="card-body">
+<h5 class="card-title text-muted text-uppercase text-center">Monthly TAC Membership</h5>
+<h6 class="card-price text-center">$15</h6>
+<hr>
+
+
+
 <script>
                                     paypal.Buttons({
                                         style: {
@@ -694,25 +363,22 @@
                                             window.location.href = "https://trianglealanoclub.com/thank-you-monthly.html"
                                         }
                                     }).render('#paypal-button-container-P-03K54366KU582762BMIGAU5I'); // Renders the PayPal button
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Pro Tier -->
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card mb-5 mb-lg-0">
-                            <div class="card-body">
-                                <h5 class="card-title text-muted text-uppercase text-center">Donate to the TAC</h5>
-                                <h6 class="card-price text-center">Any amount</h6>
-                                <hr>
-                                <h5 class="card-title text-muted text-uppercase text-center">Use this Donate button to
-                                    give any
-                                    amount as a single or recurring donation</h5>
-                                <div id="donate-button-container">
-                                    <div id="donate-button" class="text-center"></div>
-                                    <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js"
-                                        charset="UTF-8"></script>
-                                    <script>
+                                </script> 
+</div>
+</div>
+</div>
+<!-- Pro Tier -->
+<div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+<div class="card mb-5 mb-lg-0">
+<div class="card-body">
+<h5 class="card-title text-muted text-uppercase text-center">Donate to the TAC</h5>
+<h6 class="card-price text-center">Any amount</h6>
+<hr>
+<h5 class="card-title text-muted text-uppercase text-center">Use this Donate button to give any amount as a single or recurring donation</h5>
+<div id="donate-button-container">
+<div id="donate-button" class="text-center"></div>
+<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+<script>
                                         PayPal.Donation.Button({
                                             env: 'production',
                                             hosted_button_id: 'DMT74HBVQ2BLJ',
@@ -722,117 +388,27 @@
                                                 title: 'PayPal - The safer, easier way to pay online!',
                                             }
                                         }).render('#donate-button');
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Donate Section -->
-		
-		<!-- ======= Mission Section ======= -->
-        <section id="mission" class="section-bg">
+                                    </script> 
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<br>
+<hr>
+<div class="row">
+<div class="text-center col-lg-6 offset-lg-3">
+<h4>TAC - Triangle Alano Club</h4>
+<p>Copyright &copy; 2024 &middot; All Rights Reserved</p>
+</div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-3.4.1.min.js"></script> 
 
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-header">
-                    <h2>Triangle Alano Club Mission</h2>
-                    <p>The mission of the Triangle Alano Club, Inc. (TAC) is to provide a safe, comfortable meeting place and social environment for recovering persons and their families in Alcoholics Anonymous, Al-Anon and Alateen groups.</p>
-                </div>
-
-            </div>
-        </section>
-        <!-- End Mission Section -->
-
-        <!-- ======= Contact Section ======= -->
-        <section id="contact" class="section-bg">
-
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-header">
-                    <h2>Contact Us</h2>
-                    <p>Please contact us by completing this form, we'll get back to you soon!</p>
-                </div>
-				
-				<div data-aidaform-widget="form-2019-12" data-url="https://lewwilson2001.aidaform.com/free-basic-contact-form" data-width="100%" data-height="500px" data-do-resize></div><script>(function(){var r,d=document,gt=d.getElementById,cr=d.createElement,tg=d.getElementsByTagName,id="aidaform-embed";if(!gt.call(d,id)){r=cr.call(d,"script");r.id=id;r.src="https://embed.aidaform.com/embed.js";(d.head || tg.call(d,"head")[0]).appendChild(r);}})()</script>
-
-            </div>			
-			
-        </section>
-        <!-- End Contact Section -->
-
-    </main>
-
-    <!-- ======= Footer ======= -->
-    <footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div id="footerlogo" class="col-lg-3 col-md-6 footer-info">
-                        <script src="assets/js/setFooterLogo.js"></script>
-                    </div>
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Recovery Links</h4>
-                        <ul>
-                            <li><i class="bi bi-chevron-right"></i> <a href="https://aa.org" target="_blank">Alcoholics
-                                    Anonymous
-                                    (A.A.)</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="https://al-anon.org"
-                                    target="_blank">Al-Anon</a></li>
-                            <!-- <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li> -->
-                        </ul>
-                    </div>
-                    <!-- <div class="col-lg-3 col-md-6 footer-links">
-              <h4>Recovery Links</h4>
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>              
-                <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
-              </ul>
-            </div> -->
-                    <div class="col-lg-3 col-md-6 footer-contact">
-                        <h4>Contact Us</h4>
-                        <p>
-                            <strong>Mailing Address:</strong><br>
-                            P.O. Box 3353<br>
-                            Cary, NC 27519<br>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong>Triangle Alano Club</strong>. All Rights Reserved
-            </div>
-        </div>
-    </footer>
-    <!-- End  Footer -->
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Main JS File -->
-    <script src="assets/js/main.js"></script>
-
-    <!-- Get Day JS File-->
-    <script src="assets/js/getDay.js"></script>
-
-    <!-- Contact Form JS File -->
-    <script src="assets/js/sendEmail.js"></script>
-
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/popper.min.js"></script> 
+<script src="js/bootstrap-4.4.1.js"></script>
 </body>
-
 </html>
