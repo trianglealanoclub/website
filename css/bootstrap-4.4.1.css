@@ -10265,7 +10265,8 @@ a.text-dark:hover, a.text-dark:focus {
   }
 */
   .address-600 {
-  margin: 1.5rem 0 !important;
+/*  margin: 1.5rem 0 !important;*/
+  margin: -1rem 1.5rem 0 !important;
   font-size: 1.25rem;
   text-align: center !important;
   }
@@ -10273,4 +10274,10 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 1rem !important;
   text-align: center !important;
   }
+  .map-hidden-600 {
+  display: none !important;
+  }
+  .top-nav-padding-600 {
+  padding-bottom: 1rem !important;
+}
 }
