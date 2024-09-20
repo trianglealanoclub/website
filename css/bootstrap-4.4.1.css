@@ -10240,14 +10240,16 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
 @media only screen and (max-width: 600px) {
   .mt-5-600 {
     margin-top: 0rem !important;
 	color: darkslategray !important;
   }
-}
-
-@media only screen and (max-width: 600px) {
+  .mt-5-600-contact {
+    margin-top: 2rem !important;
+	color: darkslategray !important;
+  }
   .icon-block {
     display: block !important;
   }
