@@ -28,10 +28,12 @@ html {
 .navbar {
     background-color: rgba(24, 100, 171, 1) !important;
     transition: background-color 0.3s ease;
+    border-bottom: 2px solid #4dabf7;
 }
-	.navbar-brand:hover img {
-    transform: scale(1.05);
-	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; 
+
+.navbar-brand:hover img {
+    transform: none;
+    box-shadow: none;
 }
 .navbar-nav {
 	margin-left: auto;
@@ -68,17 +70,23 @@ html {
     background-color: #3a8fd1;
     transform: translateY(-2px);
 }
+
+.nav-button::after {
+    content: none;
+}
 .section {
-	padding: 4rem 0;
+	padding: 8rem 0;
 }
 .section h2 {
-	margin-bottom: 2rem;
-	display: flex;
-	align-items: center;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
 }
+
 .section h2 i {
-	margin-right: 10px;
-	font-size: 1.5em;
+    margin-right: 10px;
+    font-size: 1.5em;
 }
 .card {
 	background-color: var(--card-bg);
@@ -150,12 +158,11 @@ html {
 	text-align: left;
 }
 .meeting-schedule {
-	display: flex;
-	overflow-x: auto;
-	padding-bottom: 20px;
-	position: relative;
-	scrollbar-width: thin;
-	scrollbar-color: var(--primary-color) #e0e0e0;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
 }
 .meeting-schedule::-webkit-scrollbar {
 height: 12px;
@@ -181,13 +188,13 @@ border: 3px solid #e0e0e0;
 	z-index: 1;
 }
 .meeting-day {
-	flex: 0 0 auto;
-	width: 250px;
-	margin-right: 10px;
-	background-color: var(--card-bg);
-	border: 1px solid #ddd;
-	border-radius: 8px;
-	padding: 10px;
+    flex: 0 0 auto;
+    width: 250px;
+    margin-right: 10px;
+    background-color: var(--card-bg);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
 }
 .meeting-day.current-day {
 	border: 2px solid var(--primary-color);
@@ -281,6 +288,21 @@ border: 3px solid #e0e0e0;
 .nav-item {
 	margin: 0.5rem 0;
 }
+	.navbar {
+        padding-bottom: 1rem;
+    }
+    
+    .nav-button {
+        padding: 0.5rem 1.5rem !important;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+        width: auto;
+    }
+    
+    .card iframe {
+        height: 300px;
+    }
 }
 	
 	.cta-button {
@@ -300,13 +322,24 @@ border: 3px solid #e0e0e0;
     box-shadow: 0 6px 8px rgba(0,0,0,0.2);
 }
 	
+	footer {
+    background-color: #1864ab;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+	
 </style>
 </head>
 <body>
-<!-- Replace the existing navbar with this updated version -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand">
       <img src="images/TAC-logo-blue.png" width="243" height="64" alt="TAC Logo"/>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -315,7 +348,7 @@ border: 3px solid #e0e0e0;
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#top">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#meetings">Meetings</a>
@@ -326,7 +359,7 @@ border: 3px solid #e0e0e0;
         <li class="nav-item">
           <a class="nav-link" href="#calendar">Calendar</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" style="padding-right: .5rem">
           <a class="nav-link" href="#contact">Contact</a>
         </li>
         <li class="nav-item">
@@ -353,16 +386,23 @@ border: 3px solid #e0e0e0;
       </div>
     </div>
   </section>
-  <section id="location" class="section">
-    <div class="container">
-      <h2><i class="fas fa-map-marker-alt"></i> Location</h2>
-      <div class="card">
-        <div id="map"></div>
+  <!-- Update the location section HTML -->
+<section id="location" class="section">
+  <div class="container">
+    <h2><i class="fas fa-map-marker-alt"></i> Location</h2>
+    <div class="card">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.3266682301883!2d-78.740479!3d35.7673512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89acf484eab87b25%3A0xde0cb78b572d89c3!2s1219%20Buck%20Jones%20Rd%2C%20Raleigh%2C%20NC%2027606!5e0!3m2!1sen!2sus!4v1727989426151!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="mt-5">
         <h3>Triangle Alano Club</h3>
-        <p>1219 Buck Jones Road, Raleigh, NC 27606</p>
+        <a href="https://maps.app.goo.gl/dSq4kNWjQ65nEmYm9">
+          <p>1219 Buck Jones Road, Raleigh, NC 27606</p>
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
   <section id="calendar" class="section">
     <div class="container">
       <h2><i class="far fa-calendar-alt"></i> Calendar</h2>
@@ -388,15 +428,15 @@ border: 3px solid #e0e0e0;
   </div>
 </section>
 -->
-  <section>
-    <div class="container text-center pt-2" id="contact">
-      <h2 class="text-center mt-5 font-weight-bold mt-5-600-contact"><span class="icon-block"><i class="icon-pencil text-info"></i></span> Contact Us</h2>
-    </div>
-    <div class="container mb-5">
-      <div data-aidaform-widget="form-2019-12" data-url="https://lewwilson2001.aidaform.com/free-basic-contact-form" data-width="100%" data-height="500px" data-do-resize></div>
-      <script>(function(){var r,d=document,gt=d.getElementById,cr=d.createElement,tg=d.getElementsByTagName,id="aidaform-embed";if(!gt.call(d,id)){r=cr.call(d,"script");r.id=id;r.src="https://embed.aidaform.com/embed.js";(d.head || tg.call(d,"head")[0]).appendChild(r);}})()</script> 
-    </div>
-  </section>
+  <section id="contact" class="section">
+  <div class="container">
+    <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+	  <div class="shadow rounded">
+    <div class="rounded" data-aidaform-widget="form-2019-12" data-url="https://lewwilson2001.aidaform.com/free-basic-contact-form" data-width="100%" data-height="500px" data-do-resize></div>
+    <script>(function(){var r,d=document,gt=d.getElementById,cr=d.createElement,tg=d.getElementsByTagName,id="aidaform-embed";if(!gt.call(d,id)){r=cr.call(d,"script");r.id=id;r.src="https://embed.aidaform.com/embed.js";(d.head || tg.call(d,"head")[0]).appendChild(r);}})()</script>
+		  </div>
+  </div>
+</section>
   <!-- Replace the existing membership section with this code -->
 <!-- Replace the existing membership section with this code -->
 <section id="membership" class="section">
@@ -463,6 +503,18 @@ border: 3px solid #e0e0e0;
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script> 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+	// Close mobile menu when a menu item is clicked
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    const navItems = document.querySelectorAll('.navbar-nav .nav-link');
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (window.innerWidth < 992) { // Bootstrap's lg breakpoint
+                navbarToggler.click(); // This will close the menu
+            }
+        });
+    });
     const currentDate = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const formattedDate = currentDate.toLocaleDateString('en-US', options);
@@ -547,12 +599,6 @@ document.addEventListener('DOMContentLoaded', function() {
         scheduleContainer.appendChild(dayElement);
     });
 
-    // Scroll to current day
-    const currentDayElement = document.querySelector('.current-day');
-    if (currentDayElement) {
-        currentDayElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-    }
-
     // Drag to scroll functionality
     const slider = document.querySelector('.meeting-schedule');
     let isDown = false;
@@ -580,7 +626,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2; // Scroll-fast
+        const walk = (x - startX) * 2;
         slider.scrollLeft = scrollLeft - walk;
     });
 
@@ -604,8 +650,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const walk = (x - startX) * 2;
         slider.scrollLeft = scrollLeft - walk;
     });
-
-    // Back to top functionality
+// Back to top functionality
     const backToTop = document.querySelector('.back-to-top');
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > 100) {
@@ -686,32 +731,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Donation modal functionality
-    const openDonateModalButtons = document.querySelectorAll('#openDonateModal, #openDonateModalBottom');
-    const donateModal = new bootstrap.Modal(document.getElementById('donateModal'));
-
-    openDonateModalButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            donateModal.show();
+    // Home button functionality
+    document.querySelector('a[href="#top"]').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
     });
 });
 
-function initMap() {
-    const tacLocation = { lat: 35.767317, lng: -78.743061 };
-    const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 15,
-        center: tacLocation,
-    });
-    const marker = new google.maps.Marker({
-        position: tacLocation,
-        map: map,
-    });
-}
-	function openDonateModal() {
-  $('#donateModal').modal('show');
+function openDonateModal() {
+    $('#donateModal').modal('show');
 }
 </script>
+    
 	<!-- Add this modal HTML at the end of the body, before the closing </body> tag -->
 </body>
 </html>
