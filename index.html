@@ -389,7 +389,7 @@ html {
 .membership-card {
     background-color: var(--card-bg);
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/*    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
     padding: 1.5rem;
     text-align: center;
     margin-bottom: 1rem;
@@ -515,6 +515,47 @@ footer p {
         font-size: 1.1rem;
     }
 }
+	.membership-info {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+/*  padding: 1.5rem;*/
+  text-align: center;
+}
+
+.membership-info h3 {
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.membership-info .price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.donation-instruction {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.donate-button {
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.25rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.donate-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
 </style>
 </head>
 <body>
@@ -620,6 +661,7 @@ Taste, vote, and bid on exciting items to support your club!</strong></p>
   </section>
   <!-- Replace the existing membership section with this code --> 
   <!-- Replace the existing membership section with this code -->
+<!--
   <section id="membership" class="section">
     <div class="container">
       <h2><i class="fas fa-coffee"></i> TAC Membership</h2>
@@ -653,6 +695,39 @@ Taste, vote, and bid on exciting items to support your club!</strong></p>
       </div>
     </div>
   </section>
+-->
+	<section id="membership" class="section">
+  <div class="container">
+    <h2><i class="fas fa-coffee"></i> TAC Membership</h2>
+    <div class="row mb-4">
+      <div class="col-md-4 mb-4">
+        <div class="membership-info">
+          <h3>Annual Membership</h3>
+          <p class="price">$150 per year</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="membership-info">
+          <h3>Monthly Membership</h3>
+          <p class="price">$15 per month</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="membership-info">
+          <h3>Support TAC</h3>
+          <p class="price">Support our mission</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <p class="donation-instruction">To become a member or make a donation, please click the button below:</p>
+      <form action="https://www.paypal.com/donate" method="post" target="_blank">
+        <input type="hidden" name="hosted_button_id" value="CAY2U2WV5EHE4" />
+        <input type="submit" class="btn btn-primary btn-lg donate-button" value="Donate Now" name="submit" title="PayPal - The safer, easier way to pay online!" />
+      </form>
+    </div>
+  </div>
+</section>
   <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a> </main>
 <footer>
   <div class="container">
