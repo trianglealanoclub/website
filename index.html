@@ -11,21 +11,24 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
 <style>
 :root {
---primary-color: #4dabf7;
---secondary-color: #1864ab;
---text-color: #212529;
---bg-color: #f8f9fa;
---card-bg: #ffffff;
+    --primary-color: #4dabf7;
+    --secondary-color: #1864ab;
+    --text-color: #212529;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
 }
+
 body {
-	font-family: 'Roboto', sans-serif;
-	line-height: 1.6;
-	color: var(--text-color);
-	background-color: var(--bg-color);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
 }
+
 html {
-	scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
+
 .navbar {
     background-color: rgba(24, 100, 171, 1) !important;
     transition: background-color 0.3s ease;
@@ -36,9 +39,11 @@ html {
     transform: none;
     box-shadow: none;
 }
+
 .navbar-nav {
-	margin-left: auto;
+    margin-left: auto;
 }
+
 .nav-link {
     position: relative;
     color: white !important;
@@ -59,7 +64,8 @@ html {
 .nav-link:hover::after {
     width: 100%;
 }
-	.nav-button {
+
+.nav-button {
     background-color: #4dabf7;
     color: white !important;
     padding: 0.5rem 1rem;
@@ -75,9 +81,11 @@ html {
 .nav-button::after {
     content: none;
 }
+
 .section {
-	padding: 8rem 0;
+    padding: 8rem 0;
 }
+
 .section h2 {
     margin-bottom: 2rem;
     display: flex;
@@ -89,13 +97,15 @@ html {
     margin-right: 10px;
     font-size: 1.5em;
 }
+
 .card {
-	background-color: var(--card-bg);
-	border-radius: 8px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	padding: 2rem;
-	margin-bottom: 2rem;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
 }
+
 .welcome-section {
     background: linear-gradient(135deg, rgba(77, 171, 247, 0.8), rgba(24, 100, 171, 0.8)),
                 url('https://images.unsplash.com/photo-1507909639115-18a93391958b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center / cover;
@@ -134,7 +144,6 @@ html {
 
 .welcome-section h1 {
     font-size: 3.5rem;
-/*    margin-bottom: 1.5rem;*/
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
@@ -152,42 +161,120 @@ html {
     margin: 0 auto 2rem;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
-.current-date {
-	font-size: 1.2rem;
-	font-weight: bold;
-	margin-bottom: 1rem;
-	text-align: left;
+
+.event-banner {
+    color: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+/*    border-radius: 0.5rem;*/
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.event-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.event-banner .container {
+    position: relative;
+    z-index: 2;
+}
+
+.event-banner h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.event-banner p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.event-banner .important-note {
+    font-weight: bold;
+    color: #ffc107;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.event-banner .btn {
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.event-banner .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.chili-cookoff {
+    background-image: url('images/cartoon-chili-peppers-7406462_1280.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.blood-drive {
+    background-image: url('https://images.unsplash.com/photo-1615461065624-21b562ee5566?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.current-date {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
 .meeting-schedule {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
     padding-bottom: 20px;
     -webkit-overflow-scrolling: touch;
+    position: relative;
 }
-.meeting-schedule::-webkit-scrollbar {
-height: 12px;
-}
-.meeting-schedule::-webkit-scrollbar-track {
-background: #e0e0e0;
-border-radius: 6px;
-}
-.meeting-schedule::-webkit-scrollbar-thumb {
-background-color: var(--primary-color);
-border-radius: 6px;
-border: 3px solid #e0e0e0;
-}
+
 .meeting-schedule::after {
-	content: '';
-	position: sticky;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	width: 50px;
-	background: linear-gradient(to right, rgba(248,249,250,0), rgba(248,249,250,1));
-	pointer-events: none;
-	z-index: 1;
+    content: '\2192';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    font-size: 24px;
+    color: var(--primary-color);
+    animation: bounceRight 1s infinite;
 }
+
+@keyframes bounceRight {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+}
+
+.meeting-schedule::-webkit-scrollbar {
+    height: 12px;
+}
+
+.meeting-schedule::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 6px;
+}
+
+.meeting-schedule::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    border: 3px solid #e0e0e0;
+}
+
 .meeting-day {
     flex: 0 0 auto;
     width: 250px;
@@ -197,116 +284,108 @@ border: 3px solid #e0e0e0;
     border-radius: 8px;
     padding: 10px;
 }
+
 .meeting-day.current-day {
-	border: 2px solid var(--primary-color);
-	box-shadow: 0 0 10px rgba(77, 171, 247, 0.5);
-}
-.meeting-day h3 {
-	font-size: 1.2rem;
-	margin-bottom: 10px;
-	text-align: center;
-}
-.meeting {
-	margin-bottom: 10px;
-	font-size: 0.9rem;
-}
-.meeting-time {
-	font-weight: bold;
-	color: var(--primary-color);
-}
-.meeting-type {
-	display: inline-block;
-	background-color: #e9ecef;
-	padding: 2px 5px;
-	border-radius: 3px;
-	font-size: 0.8rem;
-	margin-top: 2px;
-}
-#fullCalendar {
-	max-width: 900px;
-	margin: 0 auto;
-}
-.fc-event {
-	cursor: pointer;
-}
-.contact-form {
-	display: grid;
-	gap: 1rem;
-}
-.contact-form input, .contact-form textarea {
-	width: 100%;
-	padding: 0.5rem;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-}
-.contact-form button {
-	background-color: var(--primary-color);
-	color: white;
-	border: none;
-	padding: 0.5rem 1rem;
-	border-radius: 4px;
-	cursor: pointer;
-}
-.membership-card {
-	background-color: var(--card-bg);
-	border-radius: 8px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	padding: 1.5rem;
-	text-align: center;
-	margin-bottom: 1rem;
-}
-.membership-card h3 {
-	margin-bottom: 1rem;
-}
-.membership-card .btn {
-	margin-top: 1rem;
-}
-#map {
-	height: 400px;
-	width: 100%;
-	border-radius: 8px;
-}
-.back-to-top {
-	position: fixed;
-	bottom: 20px;
-	right: 20px;
-	display: none;
-	background-color: var(--primary-color);
-	color: white;
-	padding: 10px 15px;
-	border-radius: 50%;
-	cursor: pointer;
-}
-.modal-body {
-	white-space: pre-wrap;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(77, 171, 247, 0.5);
+    order: -1;
 }
 
-@media (max-width: 768px) {
-.navbar-nav {
-	flex-direction: column;
-	align-items: center;
+.meeting-day h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: center;
 }
-.nav-item {
-	margin: 0.5rem 0;
+
+.meeting {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
 }
-	.navbar {
-        padding-bottom: 1rem;
-    }
-    
-    .nav-button {
-        padding: 0.5rem 1.5rem !important;
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
-        display: inline-block;
-        width: auto;
-    }
-    
-    .card iframe {
-        height: 300px;
-    }
+
+.meeting-time {
+    font-weight: bold;
+    color: var(--primary-color);
 }
-	
-	.cta-button {
+
+.meeting-type {
+    display: inline-block;
+    background-color: #e9ecef;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    margin-top: 2px;
+}
+
+#fullCalendar {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.fc-event {
+    cursor: pointer;
+}
+
+.contact-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.membership-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.membership-card h3 {
+    margin-bottom: 1rem;
+}
+
+.membership-card .btn {
+    margin-top: 1rem;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.modal-body {
+    white-space: pre-wrap;
+}
+
+.cta-button {
     display: inline-block;
     background-color: white;
     color: #1864ab !important;
@@ -322,8 +401,8 @@ border: 3px solid #e0e0e0;
     transform: translateY(-3px);
     box-shadow: 0 6px 8px rgba(0,0,0,0.2);
 }
-	
-	footer {
+
+footer {
     background-color: #1864ab;
     color: white;
     padding: 2rem 0;
@@ -333,39 +412,84 @@ border: 3px solid #e0e0e0;
 footer p {
     margin-bottom: 0;
 }
-	
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-item {
+        margin: 0.5rem 0;
+    }
+
+    .navbar {
+        padding-bottom: 1rem;
+    }
+
+    .nav-button {
+        padding: 0.5rem 1.5rem !important;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+        width: auto;
+    }
+
+    .card iframe {
+        height: 300px;
+    }
+
+    .meeting-schedule {
+        flex-direction: column;
+        overflow-x: visible;
+        padding-bottom: 0;
+    }
+
+    .meeting-schedule::after {
+        display: none;
+    }
+
+    .meeting-day {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .meeting-day.current-day {
+        order: -1;
+    }
+
+    .event-banner {
+        padding: 1.5rem;
+    }
+
+    .event-banner h3 {
+        font-size: 1.5rem;
+    }
+
+    .event-banner p {
+        font-size: 1rem;
+    }
+
+    .event-banner .important-note {
+        font-size: 1.1rem;
+    }
+}
 </style>
 </head>
 <body>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
-  <div class="container">
-    <a class="navbar-brand">
-      <img src="images/TAC-logo-blue.png" width="243" height="64" alt="TAC Logo"/>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div class="container"> <a class="navbar-brand"> <img src="images/TAC-logo-blue.png" width="243" height="64" alt="TAC Logo"/> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#top">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#meetings">Meetings</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#location">Location</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#calendar">Calendar</a>
-        </li>
-        <li class="nav-item" style="padding-right: .5rem">
-          <a class="nav-link" href="#contact">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-button" href="#membership">TAC Membership</a>
-        </li>
+        <li class="nav-item active"> <a class="nav-link" href="#top">Home <span class="sr-only">(current)</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#meetings">Meetings</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#location">Location</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#calendar">Calendar</a> </li>
+        <li class="nav-item" style="padding-right: .5rem"> <a class="nav-link" href="#contact">Contact</a> </li>
+        <li class="nav-item"> <a class="nav-link nav-button" href="#membership">TAC Membership</a> </li>
       </ul>
     </div>
   </div>
@@ -378,32 +502,56 @@ footer p {
       <p>The mission of the Triangle Alano Club, Inc. (TAC) is to provide a safe, comfortable meeting place and social environment for recovering persons and their families in Alcoholics Anonymous, Al-Anon and Alateen groups.</p>
     </div>
   </section>
+  <!-- First Event Banner -->
+<section class="event-banner chili-cookoff">
+    <div class="container">
+        <h3>Chili Cook-Off | Speaker | Silent Auction</h3>
+		<p><strong>Join us for a spicy adventure! Cook your best chili and bring it to TAC. Taste, vote, and bid on exciting items to support your club!</strong></p>
+        <p><strong>Date:</strong> October 6, 2024 | <strong>Time:</strong> 2:30 PM - 5:00 PM</p>
+		<p><strong>2:30 PM</strong> Taste from ten chilis and vote!</p>
+        <p><strong>3:30 PM</strong> Speaker</p>
+		<p><strong>3:30 PM</strong> Last call on silent auction. Cash, Check and ePayments accepted.</p>
+<!--        <a href="#" class="btn btn-light mt-2">Learn More</a>-->
+    </div>
+</section>
+
+<!-- Second Event Banner -->
+<!--
+<section class="event-banner blood-drive">
+    <div class="container">
+        <h3>Blood Drive</h3>
+        <p><strong>Date:</strong> October 16, 2024</p>
+        <p>Join us in saving lives! Donate blood at our upcoming drive. Every donation counts.</p>
+        <p class="important-note">Preregistration required</p>
+        <a href="#" class="btn btn-light mt-2">Register Now</a>
+    </div>
+</section>
+-->
   <section id="meetings" class="section">
     <div class="container">
       <h2><i class="fas fa-calendar-alt"></i> TAC Meeting Schedule</h2>
       <div class="current-date" id="scheduleCurrentDate"></div>
-      <div class="meeting-schedule"> 
+      <div class="meeting-schedule" id="meetingScheduleContainer"> 
         <!-- Meeting schedule will be populated by JavaScript --> 
       </div>
     </div>
   </section>
   <!-- Update the location section HTML -->
-<section id="location" class="section">
-  <div class="container">
-    <h2><i class="fas fa-map-marker-alt"></i> Location</h2>
-    <div class="card">
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.3266682301883!2d-78.740479!3d35.7673512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89acf484eab87b25%3A0xde0cb78b572d89c3!2s1219%20Buck%20Jones%20Rd%2C%20Raleigh%2C%20NC%2027606!5e0!3m2!1sen!2sus!4v1727989426151!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-      <div class="mt-5">
-        <h3>Triangle Alano Club</h3>
-        <a href="https://maps.app.goo.gl/dSq4kNWjQ65nEmYm9">
+  <section id="location" class="section">
+    <div class="container">
+      <h2><i class="fas fa-map-marker-alt"></i> Location</h2>
+      <div class="card">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.3266682301883!2d-78.740479!3d35.7673512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89acf484eab87b25%3A0xde0cb78b572d89c3!2s1219%20Buck%20Jones%20Rd%2C%20Raleigh%2C%20NC%2027606!5e0!3m2!1sen!2sus!4v1727989426151!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="mt-5">
+          <h3>Triangle Alano Club</h3>
+          <a href="https://maps.app.goo.gl/dSq4kNWjQ65nEmYm9">
           <p>1219 Buck Jones Road, Raleigh, NC 27606</p>
-        </a>
+          </a> </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
   <section id="calendar" class="section">
     <div class="container">
       <h2><i class="far fa-calendar-alt"></i> Calendar</h2>
@@ -413,66 +561,50 @@ footer p {
       </div>
     </div>
   </section>
-  <!--
   <section id="contact" class="section">
-  <div class="container">
-    <h2><i class="fas fa-envelope"></i> Contact Us</h2>
-    <div class="card">
-      <form id="contactForm" class="contact-form">
-        <input type="text" id="name" placeholder="Name" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <textarea id="message" placeholder="Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-      <div id="formStatus" style="display: none;"></div>
+    <div class="container">
+      <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+      <div class="shadow rounded">
+        <div class="rounded" data-aidaform-widget="form-2019-12" data-url="https://lewwilson2001.aidaform.com/free-basic-contact-form" data-width="100%" data-height="500px" data-do-resize></div>
+        <script>(function(){var r,d=document,gt=d.getElementById,cr=d.createElement,tg=d.getElementsByTagName,id="aidaform-embed";if(!gt.call(d,id)){r=cr.call(d,"script");r.id=id;r.src="https://embed.aidaform.com/embed.js";(d.head || tg.call(d,"head")[0]).appendChild(r);}})()</script> 
+      </div>
     </div>
-  </div>
-</section>
--->
-  <section id="contact" class="section">
-  <div class="container">
-    <h2><i class="fas fa-envelope"></i> Contact Us</h2>
-	  <div class="shadow rounded">
-    <div class="rounded" data-aidaform-widget="form-2019-12" data-url="https://lewwilson2001.aidaform.com/free-basic-contact-form" data-width="100%" data-height="500px" data-do-resize></div>
-    <script>(function(){var r,d=document,gt=d.getElementById,cr=d.createElement,tg=d.getElementsByTagName,id="aidaform-embed";if(!gt.call(d,id)){r=cr.call(d,"script");r.id=id;r.src="https://embed.aidaform.com/embed.js";(d.head || tg.call(d,"head")[0]).appendChild(r);}})()</script>
-		  </div>
-  </div>
-</section>
+  </section>
+  <!-- Replace the existing membership section with this code --> 
   <!-- Replace the existing membership section with this code -->
-<!-- Replace the existing membership section with this code -->
-<section id="membership" class="section">
-  <div class="container">
-    <h2><i class="fas fa-coffee"></i> TAC Membership</h2>
-    <div class="row">
-      <div class="col-md-4 mb-4">
-        <div class="membership-card">
-          <h3 class="text-2xl font-bold mb-3">Annual Membership</h3>
-          <p class="text-3xl font-bold text-spencer-blue mb-2">$150 per year</p>
+  <section id="membership" class="section">
+    <div class="container">
+      <h2><i class="fas fa-coffee"></i> TAC Membership</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="membership-card">
+            <h3 class="text-2xl font-bold mb-3">Annual Membership</h3>
+            <p class="text-3xl font-bold text-spencer-blue mb-2">$150 per year</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="membership-card">
+            <h3 class="text-2xl font-bold mb-3">Monthly Membership</h3>
+            <p class="text-3xl font-bold text-spencer-blue mb-2">$15 per month</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="membership-card">
+            <h3 class="text-2xl font-bold mb-3">Donate to TAC</h3>
+            <p class="text-xl mb-2">Support our mission</p>
+          </div>
         </div>
       </div>
-      <div class="col-md-4 mb-4">
-        <div class="membership-card">
-          <h3 class="text-2xl font-bold mb-3">Monthly Membership</h3>
-          <p class="text-3xl font-bold text-spencer-blue mb-2">$15 per month</p>
-        </div>
-      </div>
-      <div class="col-md-4 mb-4">
-        <div class="membership-card">
-          <h3 class="text-2xl font-bold mb-3">Donate to TAC</h3>
-          <p class="text-xl mb-2">Support our mission</p>
-        </div>
-      </div>
-    </div>
-    <div class="mt-8 text-center">
-      <p class="text-lg mb-4">Use the button below for a membership or to make a donation.</p>
-      <form action="https://www.paypal.com/donate" method="post" target="_blank">
+      <div class="mt-8 text-center">
+        <p class="text-lg mb-4">Use the button below for a membership or to make a donation.</p>
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
           <input type="hidden" name="hosted_button_id" value="CAY2U2WV5EHE4" />
           <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
           <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-      </form>
+        </form>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
   <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a> </main>
 <footer>
   <div class="container">
@@ -496,15 +628,14 @@ footer p {
     </div>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script> 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script> 
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script> 
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-	// Close mobile menu when a menu item is clicked
+    // Close mobile menu when a menu item is clicked
     const navbarToggler = document.querySelector('.navbar-toggler');
     const navbarCollapse = document.querySelector('.navbar-collapse');
     const navItems = document.querySelectorAll('.navbar-nav .nav-link');
@@ -516,6 +647,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
     const currentDate = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const formattedDate = currentDate.toLocaleDateString('en-US', options);
@@ -575,7 +707,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ]
     };
 
-    const scheduleContainer = document.querySelector('.meeting-schedule');
+    const scheduleContainer = document.getElementById('meetingScheduleContainer');
     const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
     const currentDay = currentDate.getDay();
 
@@ -600,58 +732,74 @@ document.addEventListener('DOMContentLoaded', function() {
         scheduleContainer.appendChild(dayElement);
     });
 
+    // Ensure the current day is visible on page load
+    const currentDayElement = document.querySelector('.meeting-day.current-day');
+    if (currentDayElement && window.innerWidth > 768) {
+        scheduleContainer.scrollLeft = currentDayElement.offsetLeft - scheduleContainer.offsetLeft;
+    }
+
     // Drag to scroll functionality
     const slider = document.querySelector('.meeting-schedule');
     let isDown = false;
     let startX;
     let scrollLeft;
 
-    slider.addEventListener('mousedown', (e) => {
+    function sliderMouseDown(e) {
         isDown = true;
         slider.classList.add('active');
         startX = e.pageX - slider.offsetLeft;
         scrollLeft = slider.scrollLeft;
-    });
+    }
 
-    slider.addEventListener('mouseleave', () => {
+    function sliderMouseLeave() {
         isDown = false;
         slider.classList.remove('active');
-    });
+    }
 
-    slider.addEventListener('mouseup', () => {
+    function sliderMouseUp() {
         isDown = false;
         slider.classList.remove('active');
-    });
+    }
 
-    slider.addEventListener('mousemove', (e) => {
+    function sliderMouseMove(e) {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - slider.offsetLeft;
         const walk = (x - startX) * 2;
         slider.scrollLeft = scrollLeft - walk;
-    });
+    }
 
-    // Touch events for mobile
-    slider.addEventListener('touchstart', (e) => {
+    function sliderTouchStart(e) {
         isDown = true;
         slider.classList.add('active');
         startX = e.touches[0].pageX - slider.offsetLeft;
         scrollLeft = slider.scrollLeft;
-    });
+    }
 
-    slider.addEventListener('touchend', () => {
+    function sliderTouchEnd() {
         isDown = false;
         slider.classList.remove('active');
-    });
+    }
 
-    slider.addEventListener('touchmove', (e) => {
+    function sliderTouchMove(e) {
         if (!isDown) return;
         e.preventDefault();
         const x = e.touches[0].pageX - slider.offsetLeft;
         const walk = (x - startX) * 2;
         slider.scrollLeft = scrollLeft - walk;
-    });
-// Back to top functionality
+    }
+
+    if (window.innerWidth > 768) {
+        slider.addEventListener('mousedown', sliderMouseDown);
+        slider.addEventListener('mouseleave', sliderMouseLeave);
+        slider.addEventListener('mouseup', sliderMouseUp);
+        slider.addEventListener('mousemove', sliderMouseMove);
+        slider.addEventListener('touchstart', sliderTouchStart);
+        slider.addEventListener('touchend', sliderTouchEnd);
+        slider.addEventListener('touchmove', sliderTouchMove);
+    }
+
+    // Back to top functionality
     const backToTop = document.querySelector('.back-to-top');
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > 100) {
@@ -746,7 +894,5 @@ function openDonateModal() {
     $('#donateModal').modal('show');
 }
 </script>
-    
-	<!-- Add this modal HTML at the end of the body, before the closing </body> tag -->
 </body>
 </html>
