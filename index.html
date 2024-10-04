@@ -518,7 +518,8 @@ footer p {
 	.membership-info {
   background-color: #f8f9fa;
   border-radius: 8px;
-/*  padding: 1.5rem;*/
+  padding: 1.5rem 0 .8rem;
+
   text-align: center;
 }
 
@@ -555,6 +556,13 @@ footer p {
   background-color: var(--secondary-color);
   transform: translateY(-2px);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+	.card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
 }
 </style>
 </head>
@@ -699,32 +707,34 @@ Taste, vote, and bid on exciting items to support your club!</strong></p>
 	<section id="membership" class="section">
   <div class="container">
     <h2><i class="fas fa-coffee"></i> TAC Membership</h2>
-    <div class="row mb-4">
-      <div class="col-md-4 mb-4">
-        <div class="membership-info">
-          <h3>Annual Membership</h3>
-          <p class="price">$150 per year</p>
+    <div class="card">
+      <div class="row mb-4">
+        <div class="col-md-4 mb-4">
+          <div class="membership-info">
+            <h3>Annual Membership</h3>
+            <p class="price">$150 per year</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="membership-info">
+            <h3>Monthly Membership</h3>
+            <p class="price">$15 per month</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="membership-info">
+            <h3>Support TAC</h3>
+            <p class="price">Support our mission</p>
+          </div>
         </div>
       </div>
-      <div class="col-md-4 mb-4">
-        <div class="membership-info">
-          <h3>Monthly Membership</h3>
-          <p class="price">$15 per month</p>
-        </div>
+      <div class="text-center">
+        <p class="donation-instruction">To become a member or make a donation, please click the button below:</p>
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+          <input type="hidden" name="hosted_button_id" value="CAY2U2WV5EHE4" />
+          <input type="submit" class="btn btn-primary btn-lg donate-button" value="Donate Now" name="submit" title="PayPal - The safer, easier way to pay online!" />
+        </form>
       </div>
-      <div class="col-md-4 mb-4">
-        <div class="membership-info">
-          <h3>Support TAC</h3>
-          <p class="price">Support our mission</p>
-        </div>
-      </div>
-    </div>
-    <div class="text-center">
-      <p class="donation-instruction">To become a member or make a donation, please click the button below:</p>
-      <form action="https://www.paypal.com/donate" method="post" target="_blank">
-        <input type="hidden" name="hosted_button_id" value="CAY2U2WV5EHE4" />
-        <input type="submit" class="btn btn-primary btn-lg donate-button" value="Donate Now" name="submit" title="PayPal - The safer, easier way to pay online!" />
-      </form>
     </div>
   </div>
 </section>
