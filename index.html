@@ -189,14 +189,17 @@ html {
 }
 
 .event-banner h3 {
-    font-size: 1.8rem;
+    font-size: 2.25rem;
+	font-weight: 700;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);color:#ff7200;
+	color:#ff7200;
 }
 
 .event-banner p {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
+	text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
 .event-banner .important-note {
@@ -216,11 +219,48 @@ html {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
+	
+	.event-banner-content {
+    display: flex;
+    align-items: center;
+}
+
+.event-icon {
+    font-size: 3rem;
+    margin-right: 1rem;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-info {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .event-banner-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .event-icon {
+        margin-bottom: 1rem;
+    }
+}
 
 .chili-cookoff {
-    background-image: url('images/cartoon-chili-peppers-7406462_1280.png');
+/*    background-image: url('images/Pepper-Sq.jpg');*/
+/*
     background-size: cover;
     background-position: center;
+*/
+/*	background-repeat: repeat;*/
+	background-image: linear-gradient(to right top, #a71616, #a11616, #9b1515, #951515, #8f1414, #961314, #9d1213, #a41113, #ba0e11, #d10a0e, #e80509, #ff0000);
 }
 
 .blood-drive {
@@ -505,13 +545,20 @@ footer p {
   <!-- First Event Banner -->
 <section class="event-banner chili-cookoff">
     <div class="container">
-        <h3>Chili Cook-Off | Speaker | Silent Auction</h3>
-		<p><strong>Join us for a spicy adventure! Cook your best chili and bring it to TAC. Taste, vote, and bid on exciting items to support your club!</strong></p>
-        <p><strong>Date:</strong> October 6, 2024 | <strong>Time:</strong> 2:30 PM - 5:00 PM</p>
-		<p><strong>2:30 PM</strong> Taste from ten chilis and vote!</p>
-        <p><strong>3:30 PM</strong> Speaker</p>
-		<p><strong>3:30 PM</strong> Last call on silent auction. Cash, Check and ePayments accepted.</p>
-<!--        <a href="#" class="btn btn-light mt-2">Learn More</a>-->
+        <div class="event-banner-content">
+            <div class="event-icon">
+                <i class="fas fa-pepper-hot"></i>
+            </div>
+            <div class="event-info">
+				<h3>This Sunday! - Chili Cook-Off | Speaker | Silent Auction</h3>
+                <p><strong>Join us for a spicy adventure! Cook your best chili and bring it to TAC.<br>
+Taste, vote, and bid on exciting items to support your club!</strong></p>
+                <p><strong>Date:</strong> October 6, 2024 | <strong>Time:</strong> 2:30 PM - 5:00 PM</p>
+                <p><strong>2:30 PM</strong> Taste from ten chilis and vote!</p>
+                <p><strong>3:30 PM</strong> Speaker</p>
+                <p><strong>3:30 PM</strong> Last call on silent auction. Cash, Check and ePayments accepted.</p>
+            </div>
+        </div>
     </div>
 </section>
 
