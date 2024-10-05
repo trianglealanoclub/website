@@ -564,6 +564,77 @@ footer p {
   padding: 2rem;
   margin-bottom: 2rem;
 }
+.chili-cookoff {
+    position: relative;
+    overflow: hidden;
+}
+
+.chili-cookoff::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,0,0,0.7), rgba(255,165,0,0.7));
+    z-index: -1;
+}
+
+.chili-cookoff .event-info {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.auction-access {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.qr-code-container, .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.qr-code {
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.qr-instruction, .button-instruction {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+.btn-light {
+    background-color: #ffffff;
+    color: #1864ab;
+    border: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+    background-color: #1864ab;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .auction-access {
+        flex-direction: column;
+    }
+}
 </style>
 </head>
 <body>
@@ -599,13 +670,23 @@ footer p {
                 <i class="fas fa-pepper-hot"></i>
             </div>
             <div class="event-info">
-				<h3>This Sunday! - Chili Cook-Off | Speaker | Silent Auction</h3>
+                <h3>This Sunday! - Chili Cook-Off | Speaker | Silent Auction</h3>
                 <p><strong>Join us for a spicy adventure! Cook your best chili and bring it to TAC.<br>
-Taste, vote, and bid on exciting items to support your club!</strong></p>
+                Taste, vote, and bid on exciting items to support your club!</strong></p>
                 <p><strong>Date:</strong> October 6, 2024 | <strong>Time:</strong> 2:30 PM - 5:00 PM</p>
                 <p><strong>2:30 PM</strong> Taste from ten chilis and vote!</p>
                 <p><strong>3:30 PM</strong> Speaker</p>
                 <p><strong>4:30 PM</strong> Last call on silent auction. Cash, Check and ePayments accepted.</p>
+                <div class="auction-access mt-4">
+                    <div class="qr-code-container">
+                        <img src="images/Silent-Auction-QR-Adobe.png" alt="Silent Auction QR Code" class="qr-code">
+                        <p class="qr-instruction">Scan to bid</p>
+                    </div>
+                    <div class="button-container">
+                        <a href="https://www.paypal.com/ncp/payment/K5ZK3Y62XA7XS" target="_blank" class="btn btn-light btn-lg">Bid on Silent Auction Items</a>
+                        <p class="button-instruction">or click to bid</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
