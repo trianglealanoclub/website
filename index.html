@@ -264,9 +264,13 @@ html {
 }
 
 .blood-drive {
+/*
     background-image: url('https://images.unsplash.com/photo-1615461065624-21b562ee5566?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
     background-size: cover;
     background-position: center;
+*/
+	background-color: #9C2022;
+	color: white;blood
 }
 
 .current-date {
@@ -564,77 +568,49 @@ footer p {
   padding: 2rem;
   margin-bottom: 2rem;
 }
-.chili-cookoff {
-    position: relative;
-    overflow: hidden;
-}
-
-.chili-cookoff::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(255,0,0,0.7), rgba(255,165,0,0.7));
-    z-index: -1;
-}
-
-.chili-cookoff .event-info {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.auction-access {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.qr-code-container, .button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.qr-code {
-    width: 120px;
-    height: 120px;
+	.chili-cookoff .event-info img {
     background-color: white;
     padding: 5px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
-
-.qr-instruction, .button-instruction {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: #ffffff;
-    text-align: center;
-}
-
-.btn-light {
-    background-color: #ffffff;
-    color: #1864ab;
-    border: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.btn-light:hover {
-    background-color: #1864ab;
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
-    .auction-access {
-        flex-direction: column;
-    }
-}
+	.event-section {
+            padding: 2rem 0;
+        }
+        .event-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .event-card {
+            flex: 1 1 300px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .event-icon {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .btn-primary {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+        .qr-code {
+            max-width: 150px;
+            margin-top: 1rem;
+        }
+        @media (max-width: 768px) {
+            .event-card {
+                flex: 1 1 100%;
+            }
+        }
 </style>
 </head>
 <body>
@@ -662,48 +638,31 @@ footer p {
       <p>The mission of the Triangle Alano Club, Inc. (TAC) is to provide a safe, comfortable meeting place and social environment for recovering persons and their families in Alcoholics Anonymous, Al-Anon and Alateen groups.</p>
     </div>
   </section>
-  <!-- First Event Banner -->
-<section class="event-banner chili-cookoff">
-    <div class="container">
-        <div class="event-banner-content">
-            <div class="event-icon">
-                <i class="fas fa-pepper-hot"></i>
-            </div>
-            <div class="event-info">
-                <h3>This Sunday! - Chili Cook-Off | Speaker | Silent Auction</h3>
-                <p><strong>Join us for a spicy adventure! Cook your best chili and bring it to TAC.<br>
-                Taste, vote, and bid on exciting items to support your club!</strong></p>
-                <p><strong>Date:</strong> October 6, 2024 | <strong>Time:</strong> 2:30 PM - 5:00 PM</p>
-                <p><strong>2:30 PM</strong> Taste from ten chilis and vote!</p>
-                <p><strong>3:30 PM</strong> Speaker</p>
-                <p><strong>4:30 PM</strong> Last call on silent auction. Cash, Check and ePayments accepted.</p>
-                <div class="auction-access mt-4">
-                    <div class="qr-code-container">
-                        <img src="images/Silent-Auction-QR-Adobe.png" alt="Silent Auction QR Code" class="qr-code">
-                        <p class="qr-instruction">Scan to pay</p>
+  <section class="section event-section">
+            <div class="container">
+                <div class="event-cards">
+                    <div class="event-card blood-drive">
+                        <div class="event-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3>Upcoming Blood Drive</h3>
+                        <p><strong>Join us in saving lives! Donate blood at the TAC.</strong></p>
+						<p><strong>Date:</strong> October 13, 2024<strong><br>
+						Time:</strong> 11:00 AM - 4:00 PM</p>
+						<p>Pre-registration required.</p>
+                        <a href="#" class="btn-primary">Learn More</a>
                     </div>
-                    <div class="button-container">
-                        <a href="https://www.paypal.com/ncp/payment/K5ZK3Y62XA7XS" target="_blank" class="btn btn-light btn-lg">Pay for Silent Auction Items</a>
-                        <p class="button-instruction">or click to pay</p>
+
+                    <div class="event-card silent-auction">
+                        <h3>Silent Auction Payment</h3>
+<!--                        <p>Silent Auction .</p>-->
+                        <img src="images/Silent-Auction-QR-Adobe.png" alt="Silent Auction QR Code" class="qr-code">
+                        <p>Scan to pay or click the button below:</p>
+                        <a href="https://www.paypal.com/ncp/payment/K5ZK3Y62XA7XS" class="btn-primary" target="_blank">Pay for Auction Items</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- Second Event Banner -->
-<!--
-<section class="event-banner blood-drive">
-    <div class="container">
-        <h3>Blood Drive</h3>
-        <p><strong>Date:</strong> October 16, 2024</p>
-        <p>Join us in saving lives! Donate blood at our upcoming drive. Every donation counts.</p>
-        <p class="important-note">Preregistration required</p>
-        <a href="#" class="btn btn-light mt-2">Register Now</a>
-    </div>
-</section>
--->
+        </section>
   <section id="meetings" class="section">
     <div class="container">
       <h2><i class="fas fa-calendar-alt"></i> TAC Meeting Schedule</h2>
