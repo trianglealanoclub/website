@@ -317,8 +317,8 @@ border: 3px solid #e0e0e0;
 	margin-top: 2px;
 }
 #fullCalendar {
-	max-width: 900px;
-	margin: 0 auto;
+/*	max-width: 900px;*/
+	margin: 0 0;
 }
 .fc-event {
 	cursor: pointer;
@@ -566,6 +566,77 @@ footer p {
     margin-top: 20px;
   }
 }
+	
+/* Add these styles to your existing CSS */
+.calendar-legend {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 10px;
+    font-size: 0.9rem;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.fc-event {
+    border: none;
+    border-radius: 3px;
+    padding: 2px 5px;
+    margin: 1px 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.fc-event:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.fc-day-grid-event .fc-content {
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fc-time-grid-event {
+    border-radius: 3px;
+}
+
+.fc-time-grid-event.fc-short .fc-content {
+    font-size: 0.8em;
+}
+
+/* Make the calendar more responsive */
+@media (max-width: 768px) {
+    .fc-toolbar {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .fc-toolbar .fc-left,
+    .fc-toolbar .fc-center,
+    .fc-toolbar .fc-right {
+        margin: 5px 0;
+    }
+    
+    .legend-item {
+        font-size: 0.8rem;
+    }
+}
+	
 </style>
 </head>
 <body>
