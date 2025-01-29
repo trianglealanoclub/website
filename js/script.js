@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { time: '9:00 AM', name: 'Be Still ... Mid-Morning Meditation', type: 'Meditation, Open Meeting, AA' },
             { time: '12:00 PM', name: 'Living Now', type: 'Literature Discussion, Closed Meeting, AA' },
             { time: '6:00 PM', name: 'Living Now', type: 'Literature Discussion, Closed Meeting, AA' },
-			{ time: '8:00 PM - 10:00 PM', name: 'Doce Promesas', type: 'Spanish Speaking, Discussion, Open Meeting, AA' }
+			{ time: '8:00 PM - 10:00 PM', name: 'Doce Promesas', type: 'ESP (Spanish), Speaker, Closed Meeting, AA' }
         ],
         tuesday: [
             { time: '6:30 AM', name: 'Morning Meditation Group', type: '11th Step Discussion, Open Meeting, AA' },
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { time: '9:00 AM', name: 'Be Still ... Mid-Morning Meditation', type: 'Meditation, Open Meeting, AA' },
             { time: '12:00 PM', name: 'Living Now', type: 'Literature Discussion, Closed Meeting, AA' },
             { time: '6:00 PM', name: 'Living Now', type: 'Literature Discussion, Closed Meeting, AA' },
-			{ time: '8:00 PM - 10:00 PM', name: 'Doce Promesas', type: 'Spanish Speaking, Discussion, Open Meeting, AA' }
+			{ time: '8:00 PM - 10:00 PM', name: 'Doce Promesas', type: 'ESP (Spanish), Speaker, Closed Meeting, AA' }
         ],
         friday: [
             { time: '6:30 AM', name: 'Morning Meditation Group', type: '11th Step Discussion, Open Meeting, AA' },
