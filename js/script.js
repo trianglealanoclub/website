@@ -390,15 +390,15 @@ document.addEventListener('DOMContentLoaded', function() {
             },
 			{
                 title: 'Valentines Fellowship',
-                start: '2025-02-14T14:30:00',
-                end: '2025-02-14T16:30:00',
+                start: '2025-02-14T19:00:00',
+                end: '2025-02-14T19:45:00',
 				description: 'Join us for FELLOWSHIP & A SWEET TREAT! Bring your sweet tooth and a Valentines Day treat to share!'
             },
 			{
                 title: 'Lucky Charm Sabotage',
                 start: '2025-03-16T14:30:00',
                 end: '2025-03-16T17:30:00',
-				description: 'Join us for FELLOWSHIP & A SWEET TREAT! Bring your sweet tooth and a Valentines Day treat to share!'
+				description: 'Join NCCYPAA for their St Patricks Day celebration at the TAC! Bring your Irish spirit!'
             },
 			{
                 title: 'Thanksgiving Celebration - Living Now Group',
