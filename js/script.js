@@ -405,6 +405,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 start: '2024-11-28',
                 end: '2024-11-28',
 //				description: 'Thanksgiving at the TAC! Yum.'
+            },
+			{
+                title: 'Recovery Club Bowling Tournament',
+                start: '2025-03-09T12:30:00',
+                end: '2025-03-09T15:30:00',
+                description: 'Location: King\'s Bowling Alley - NorthHills<br>141 Park at North Hills Street, Raleigh<br><br>Entry $25 per person for 2 games with shoe rental & donation to your club - pay when you arrive.'
             }
         ],
         eventClick: function(event, jsEvent, view) {
