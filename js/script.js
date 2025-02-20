@@ -395,10 +395,10 @@ document.addEventListener('DOMContentLoaded', function() {
 				description: 'Join us for FELLOWSHIP & A SWEET TREAT! Bring your sweet tooth and a Valentines Day treat to share!'
             },
 			{
-                title: 'Lucky Charm Sabotage',
+                title: 'St. Patrick\'s Day Social',
                 start: '2025-03-16T14:30:00',
                 end: '2025-03-16T17:30:00',
-				description: 'Join NCCYPAA for their St Patricks Day celebration at the TAC! Bring your Irish spirit!'
+				description: 'Join NCCYPAA for their St. Patrick\'s Day Social at the TAC! Bring your Irish spirit!'
             },
 			{
                 title: 'Thanksgiving Celebration - Living Now Group',
