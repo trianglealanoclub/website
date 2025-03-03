@@ -443,3 +443,20 @@ document.addEventListener('DOMContentLoaded', function() {
 function openDonateModal() {
     $('#donateModal').modal('show');
 }
+
+// Add this to your existing script.js file
+
+// Function to update the footer's copyright year
+function updateCopyrightYear() {
+  const currentYear = new Date().getFullYear();
+  const footerCopyright = document.querySelector('footer p');
+  
+  if (footerCopyright) {
+    footerCopyright.innerHTML = `&copy; ${currentYear} Triangle Alano Club. All Rights Reserved.`;
+  }
+}
+
+// Call this function when the DOM content is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  updateCopyrightYear();
+});
